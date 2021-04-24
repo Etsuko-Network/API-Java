@@ -19,8 +19,9 @@ public interface IEtsukoAPI {
      * La fonction "load" permet le chargement et la bonne ergonomie de cette API.
      *
      * @param callback Permets de retourné après que la fonction soit appelée, si cette dernière est un sucées ou si elle rencontre des erreurs.
+     * @throws InternalError Lors du chargement de cette API, elle peut engendrer des erreurs interne.
      */
-    default void load(Callback callback) {
+    default void load(Callback callback) throws InternalError {
         throw new InternalError("Etsuko load can't process, because there isn't @Override or there is cast of super.");
     }
 

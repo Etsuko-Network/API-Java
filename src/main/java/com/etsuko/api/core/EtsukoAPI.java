@@ -11,7 +11,7 @@ import com.etsuko.api.core.interfaces.IEtsukoAPI;
 
 public class EtsukoAPI implements IEtsukoAPI {
 
-    public EtsukoAPI() {
+    public EtsukoAPI() throws InternalError {
         Callback loadCallback = (success, errors) -> {
 
         };
