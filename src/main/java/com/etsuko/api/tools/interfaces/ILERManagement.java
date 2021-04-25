@@ -12,6 +12,7 @@ package com.etsuko.api.tools.interfaces;
  * (En anglais: Levels, Experiences, Rebirths)
  *
  * @author Levasseur Wesley
+ * @version 1.0.0
  */
 public interface ILERManagement {
 

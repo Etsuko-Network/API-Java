@@ -18,6 +18,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @version 1.0.0
+ */
 public interface ILogger extends Logger {
 
     String getName();

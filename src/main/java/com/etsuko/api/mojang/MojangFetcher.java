@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
  * MojangFetcher est une classe permettant la gestion de l'API Mojang pour y récupérer des données.
  *
  * @author Levasseur Wesley
+ * @version 1.0.0
  */
 public class MojangFetcher {
 
