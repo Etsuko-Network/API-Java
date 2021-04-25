@@ -16,7 +16,6 @@
 
 # API-Java 
 
----
 ![Dev|Started][]
 ![GLOBAL|VERSION][]
 [ ![Javadoc][] ](https://dev.etsuko-network.com/javadoc/api)
@@ -26,12 +25,10 @@
 
 ## Customer ![Customer|Version][]
 
----
 - Soon
 
 ## Logger ![Logger|Version][]![SECURITY_CHECK][]
 
----
 - [x] ILogger - Programming ![ILogger|Version][]
 - [x] ILogger - Javadoc
 - [x] ILoggerFactory - Programming ![ILoggerFactory|Version][]
@@ -41,19 +38,16 @@
 
 ## MojangFetcher ![MojangFetcher|Version][]![SECURITY_CHECK][]
 
----
 - [x] MojangFetcher - Programming
 - [x] MojangFetcher - Javadoc
 
 ## Tools
 
----
 ### LERManagement (Levels Experiences Rebirths Management) ![TOOLS|LERManagement][]![SECURITY_CHECK][]
 - [x] ILERManagement - Programming
 - [x] ILERManagement - Javadoc
 - [x] LERManagement - Programming
 
----
 ## Auteurs
 
 * **Wesley Levasseur** - *Créateur* - [KanekiReal](https://github.com/kanekireal)
