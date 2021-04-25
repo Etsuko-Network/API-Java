@@ -8,7 +8,7 @@
 package com.etsuko.api.core.interfaces;
 
 /**
- * IEtsukoAPI, est une interface et permet la gestion du "core" de EtsukoAPI.
+ * IEtsukoAPI est une interface et permet la gestion du "core" de EtsukoAPI.
  * Aussi cette dernière est la classe maître de cette API.
  *
  * @author Levasseur Wesley

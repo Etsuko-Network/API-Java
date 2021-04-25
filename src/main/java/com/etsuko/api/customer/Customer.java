@@ -28,7 +28,7 @@ public class Customer implements ICustomer {
     private String username, addressMail, lastIpAddress;
     private Date lastLogged = new Date();
 
-    Customer() {
+    public Customer() {
     }
 
     @Override
