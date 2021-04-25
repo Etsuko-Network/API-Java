@@ -7,25 +7,77 @@
 [SECURITY_UNCHECK]: https://img.shields.io/static/v1?label=Security&message=&cross;&style=for-the-badge&color=red
 [SECURITY_PENDING]: https://img.shields.io/static/v1?label=Security&message=&#9832;&style=for-the-badge&color=orange
 [Customer|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerEconomy|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerPotency|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerPenalty|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerSecurity|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerTFA|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
+[CustomerSettings|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
 [Logger|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [ILogger|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [ILoggerFactory|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [MojangFetcher|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [TOOLS|LERManagement]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
+[TOOLS|TFA]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
 [GLOBAL|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
 
 # API-Java 
 
-![Dev|Started][]
-![GLOBAL|VERSION][]
-[ ![Javadoc][] ](https://dev.etsuko-network.com/javadoc/api)
-[ ![Versioning][] ](http://semver.org/)
-[ ![Licence][] ](https://github.com/Etsuko-Network/API-Java/blob/main/LICENCE)
+> ![Dev|Started][]
+> 
+> [ ![Licence][] ](https://github.com/Etsuko-Network/API-Java/blob/main/LICENCE)
+> 
+> ![GLOBAL|VERSION][]
+> 
+> [ ![Javadoc][] ](https://dev.etsuko-network.com/javadoc/api)
+> 
+> [ ![Versioning][] ](http://semver.org/)
 
 
-## Customer ![Customer|Version][]
+## Customer ![Customer|Version][]![SECURITY_UNCHECK][]
 
-- Soon
+- [x] ICustomer - Base Programming
+- [ ] ICustomer - Base Javadoc
+- [x] Customer - Base Programming
+
+
+### CustomerEconomy ![CustomerEconomy|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerEconomy - Programming
+- [ ] ICustomerEconomy - Javadoc
+- [ ] CustomerEconomy - Programming
+
+### CustomerPotency ![CustomerPotency|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerPotency - Programming
+- [ ] ICustomerPotency - Javadoc
+- [ ] CustomerPotency - Programming
+
+### CustomerPenalty ![CustomerPenalty|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerPenalty - Programming
+- [ ] ICustomerPenalty - Javadoc
+- [ ] CustomerPenalty - Programming
+
+### CustomerSecurity ![CustomerSecurity|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerSecurity - Base Programming
+- [ ] ICustomerSecurity - Base Javadoc
+- [ ] CustomerSecurity - Base Programming
+
+#### CustomerTFA ![CustomerTFA|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerTFA - Programming
+- [ ] ICustomerTFA - Javadoc
+- [ ] CustomerTFA - Programming
+
+
+### CustomerSettings ![CustomerSettings|Version][]![SECURITY_UNCHECK][]
+
+- [ ] ICustomerSettings - Programming
+- [ ] ICustomerSettings - Javadoc
+- [ ] CustomerSettings - Programming
+
 
 ## Logger ![Logger|Version][]![SECURITY_CHECK][]
 
@@ -47,6 +99,11 @@
 - [x] ILERManagement - Programming
 - [x] ILERManagement - Javadoc
 - [x] LERManagement - Programming
+
+### TFA (Two-Factor Authentication) ![TOOLS|TFA][]![SECURITY_UNCHECK][]
+- [ ] ITFA - Programming
+- [ ] ITFA - Javadoc
+- [ ] TFA - Programming
 
 ## Auteurs
 
