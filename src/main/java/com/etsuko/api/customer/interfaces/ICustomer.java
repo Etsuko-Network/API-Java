@@ -1,5 +1,5 @@
 /*
- * Conçu avec ❤  par Levasseur Wesley pour Etsuko.
+ * Conçu avec ♡ par Levasseur Wesley pour Etsuko.
  * © Copyright 2021. Tous droits réservés.
  *
  * Création datant du 25/4/2021 à 0:7:44.
