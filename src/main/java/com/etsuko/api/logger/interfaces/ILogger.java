@@ -7,6 +7,7 @@
 
 package com.etsuko.api.logger.interfaces;
 
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.helpers.FormattingTuple;
@@ -15,84 +16,186 @@ import org.slf4j.helpers.MessageFormatter;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
- * @version 1.0.0
+ * ILogger consiste à ajouter des traitements pour permettre l'émission et le stockage
+ * de messages suite à des événements.
+ *
+ * @author Levasseur Wesley
+ * @version 1.1.0
  */
 public interface ILogger extends Logger {
 
+    /**
+     * Cette fonction permet de crée le nom du logger depuis directement l'objet {@link Class}.
+     *
+     * @param _class La classe suivie est celle ou se situe l'exécution du logger.
+     * @return Le nom du logger.
+     */
+    static String performName(Class<?> _class) {
+        return _class.getPackageName() + _class.getName();
+    }
+
+    /**
+     * @return Le nom du Logger.
+     */
     String getName();
 
+    /**
+     * @return Le nom raccourci du Logger.
+     */
     private String getShortName() {
         return this.getName().substring(this.getName().lastIndexOf(".") + 1);
     }
 
+    /**
+     * @return Le Factory du logger.
+     */
     ILoggerFactory getLoggerFactory();
 
+
+    /**
+     * Cette dernière peut-être modifiable selon l'utilisateur.
+     *
+     * @return Le formatage de la date.
+     */
     default SimpleDateFormat getDateFormat() {
         return new SimpleDateFormat("MMMM dd',' yyyy '-' hh:mm:ss aaa '('zZ')'");
     }
 
+    /**
+     * Cette dernière peut-être modifiable selon l'utilisateur.
+     * Il gardera quand-même les 4 définitions qui sont:
+     * - {DATE} pour l'affichage de la date formaté.
+     * - {LEVELS} pour le niveau du Logger.
+     * - {NAME} pour le nom raccourci du Logger.
+     * - {MESSAGE} pour le message du Logger.
+     *
+     * @return Le formatage de la ligne.
+     */
     default String getLineFormat() {
         return "[{DATE}] [{LEVELS}-{NAME}] {MESSAGE}";
     }
 
+    /**
+     * @return Si le Logger est actif en niveau {@link Levels} "Debug".
+     */
     default boolean isDebugging() {
         return true;
     }
 
+    /**
+     * Cette fonction permet d'activer niveau {@link Levels} "Debug".
+     */
     void activateDebugging();
 
+    /**
+     * Cette fonction permet de désactiver niveau {@link Levels} "Debug".
+     */
     void deactivateDebugging();
 
+    /**
+     * @return Si le Logger est actif en niveau {@link Levels} "Trace".
+     */
     default boolean isTracing() {
         return true;
     }
 
+    /**
+     * Cette fonction permet d'activer niveau {@link Levels} "Trace".
+     */
     void activateTracing();
 
+    /**
+     * Cette fonction permet de désactiver niveau {@link Levels} "Trace".
+     */
     void deactivateTracing();
 
+    /**
+     * @return Si le Logger est actif en niveau {@link Levels} "Info".
+     */
     default boolean isInforming() {
         return true;
     }
 
+    /**
+     * Cette fonction permet d'activer niveau {@link Levels} "Info".
+     */
     void activateInforming();
 
+    /**
+     * Cette fonction permet de désactiver niveau {@link Levels} "Info".
+     */
     void deactivateInforming();
 
+    /**
+     * @return Si le Logger est actif en niveau {@link Levels} "Warn".
+     */
     default boolean isWarning() {
         return true;
     }
 
+    /**
+     * Cette fonction permet d'activer niveau {@link Levels} "Warn".
+     */
     void activateWarning();
 
+    /**
+     * Cette fonction permet de désactiver niveau {@link Levels} "Warn".
+     */
     void deactivateWarning();
 
+    /**
+     * @return Si le Logger est actif en niveau {@link Levels} "Error".
+     */
     default boolean isErroring() {
         return true;
     }
 
+    /**
+     * Cette fonction permet d'activer niveau {@link Levels} "Error".
+     */
     void activateErroring();
 
+    /**
+     * Cette fonction permet de désactiver niveau {@link Levels} "Error".
+     */
     void deactivateErroring();
 
-    private boolean isLevelsActive(int level) {
-        return Levels.TRACE.getLevel() == level ? this.isTracing() : (Levels.DEBUG.getLevel() == level ? this.isDebugging() : (Levels.INFO.getLevel() == level ? this.isInforming() : (Levels.WARN.getLevel() == level ? this.isWarning() : Levels.ERROR.getLevel() != level || this.isErroring())));
+    /**
+     * Cette fonction permet vérifier si le niveau {@link Levels} du Logger en paramètre est actif.
+     *
+     * @param level Le niveau du Logger
+     * @return Si le niveau {@link Levels} du Logger en paramètre est actif.
+     */
+    private boolean isLevelsActive(Levels level) {
+        return Levels.TRACE == level ? this.isTracing() : (Levels.DEBUG == level ? this.isDebugging() : (Levels.INFO == level ? this.isInforming() : (Levels.WARN == level ? this.isWarning() : Levels.ERROR != level || this.isErroring())));
     }
 
+    /**
+     * @return La ligne formatée.
+     */
     private String getFormattedLine(String date, String levels, String message) {
         return this.getLineFormat().replace("{DATE}", date).replace("{LEVELS}", levels).replace("{NAME}", this.getShortName()).replace("{MESSAGE}", message);
     }
 
+    /**
+     * @return La date formatée.
+     */
     private String getFormattedDate() {
         return this.getDateFormat().format(new Date());
     }
 
-    private void log(Levels levels, String message, Throwable throwable) {
-        if (this.isLevelsActive(levels.getLevel())) {
+    /**
+     * Cette fonction permet de "log" et d'envoyer en console l'erreur
+     * puis de l'enregistrer dans le factory pour sauvegarder tous cela dans un fichier.
+     *
+     * @param levels    Le niveau du Logger.
+     * @param message   Le message a inscrire dans le Logger.
+     * @param throwable Une erreur @Nullable.
+     */
+    private void log(Levels levels, String message, @Nullable Throwable throwable) {
+        if (this.isLevelsActive(levels)) {
             final String date = this.getFormattedDate();
             final String line = this.getFormattedLine(date, levels.toString(), message);
             String color = levels.getColors().getColor();
@@ -109,14 +212,14 @@ public interface ILogger extends Logger {
     }
 
     private void formatAndLog(Levels levels, String format, Object a, Object a2) {
-        if (this.isLevelsActive(levels.getLevel())) {
+        if (this.isLevelsActive(levels)) {
             FormattingTuple fT = MessageFormatter.format(format, a, a2);
             this.log(levels, fT.getMessage(), fT.getThrowable());
         }
     }
 
     private void formatAndLog(Levels levels, String format, Object... a) {
-        if (this.isLevelsActive(levels.getLevel())) {
+        if (this.isLevelsActive(levels)) {
             FormattingTuple fT = MessageFormatter.arrayFormat(format, a);
             this.log(levels, fT.getMessage(), fT.getThrowable());
         }
@@ -424,31 +527,17 @@ public interface ILogger extends Logger {
     }
 
     enum Levels {
-        TRACE(0, Colors.CYAN),
-        DEBUG(10, Colors.PURPLE),
-        INFO(20, Colors.BLUE),
-        WARN(30, Colors.YELLOW),
-        ERROR(40, Colors.RED),
-        CONSOLE(50, Colors.GREEN);
+        TRACE(Colors.CYAN),
+        DEBUG(Colors.PURPLE),
+        INFO(Colors.BLUE),
+        WARN(Colors.YELLOW),
+        ERROR(Colors.RED),
+        CONSOLE(Colors.GREEN);
 
-        private final int level;
         private final Colors colors;
 
-        Levels(int level, Colors colors) {
-            this.level = level;
+        Levels(Colors colors) {
             this.colors = colors;
-        }
-
-        public static Map<Integer, Levels> getLevels() {
-            return Arrays.stream(values()).collect(Collectors.toMap(value -> value.level, value -> value, (a, b) -> b));
-        }
-
-        public static Levels getLevelsFromLevel(int level) {
-            return Levels.getLevels().get(level);
-        }
-
-        public int getLevel() {
-            return this.level;
         }
 
         public Colors getColors() {

@@ -21,6 +21,10 @@ public class Logger implements ILogger {
         this.loggerFactory = loggerFactory;
     }
 
+    public Logger(Class<?> _class, ILoggerFactory loggerFactory) {
+        this(ILogger.performName(_class), loggerFactory);
+    }
+
     @Override
     public String getName() {
         return this.name;

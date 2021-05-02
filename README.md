@@ -13,9 +13,9 @@
 [CustomerSecurity|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
 [CustomerTFA|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
 [CustomerSettings|Version]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
-[Logger|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
-[ILogger|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
-[ILoggerFactory|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
+[Logger|Version]: https://img.shields.io/static/v1?label=Version&message=1.1.0&style=for-the-badge&color=light_green
+[ILogger|Version]: https://img.shields.io/static/v1?label=Version&message=1.1.0&style=for-the-badge&color=light_green
+[ILoggerFactory|Version]: https://img.shields.io/static/v1?label=Version&message=1.1.0&style=for-the-badge&color=light_green
 [MojangFetcher|Version]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [TOOLS|LERManagement]: https://img.shields.io/static/v1?label=Version&message=1.0.0&style=for-the-badge&color=light_green
 [TOOLS|TFA]: https://img.shields.io/static/v1?label=Version&message=Building...&style=for-the-badge&color=red
