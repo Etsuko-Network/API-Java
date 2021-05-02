@@ -8,24 +8,15 @@
 package com.etsuko.api.customer;
 
 import com.etsuko.api.customer.interfaces.ICustomer;
-import dev.morphia.annotations.Entity;
-import dev.morphia.annotations.Id;
-import dev.morphia.annotations.IndexOptions;
-import dev.morphia.annotations.Indexed;
-import org.bson.types.ObjectId;
 
 import java.util.Date;
 import java.util.UUID;
 
-@Entity(value = "Customers", useDiscriminator = false)
 public class Customer implements ICustomer {
 
     private final Date creationDate = new Date();
-    @Id
-    private ObjectId id;
-    @Indexed(options = @IndexOptions(unique = true))
     private UUID universalUniqueIdentifier;
-    private String username, addressMail, lastIpAddress;
+    private String addressMail, lastIpAddress;
     private Date lastLogged = new Date();
 
     public Customer() {
@@ -34,16 +25,6 @@ public class Customer implements ICustomer {
     @Override
     public UUID getUniversalUniqueIdentifier() {
         return this.universalUniqueIdentifier;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
-
-    @Override
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     @Override

@@ -14,16 +14,16 @@ public interface ICustomer {
 
     UUID getUniversalUniqueIdentifier();
 
-    String getUsername();
-    void setUsername(String username);
-
     String getAddressMail();
+
     void setAddressMail(String addressMail);
 
     String getLastIpAddress();
+
     void setLastIpAddress(String lastIpAddress);
 
     Date getLastLogged();
+
     void setLastLogged(Date lastLogged);
 
     Date getCreationDate();
