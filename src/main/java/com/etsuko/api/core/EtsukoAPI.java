@@ -8,6 +8,11 @@
 package com.etsuko.api.core;
 
 import com.etsuko.api.core.interfaces.IEtsukoAPI;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+
+import java.io.IOException;
 
 public class EtsukoAPI implements IEtsukoAPI {
 
@@ -19,7 +24,12 @@ public class EtsukoAPI implements IEtsukoAPI {
     }
 
     @Override
-    public void load(Callback callback) {
-
+    public void load(Callback callback) throws InternalError {
+        try {
+            FirebaseApp.initializeApp(FirebaseOptions.builder().setCredentials(GoogleCredentials.getApplicationDefault()).build());
+        } catch (IOException e) {
+            throw new InternalError("An error occurred while initializing FirebaseApp.", e);
+        }
     }
+
 }
