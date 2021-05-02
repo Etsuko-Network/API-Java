@@ -40,7 +40,6 @@ public interface IFirebaseAuthPlus {
             byte[] outData = ("{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}").getBytes(StandardCharsets.UTF_8);
             httpURLConnection.setFixedLengthStreamingMode(outData.length);
             httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            httpURLConnection.connect();
             try (OutputStream os = httpURLConnection.getOutputStream()) {
                 os.write(outData);
             }

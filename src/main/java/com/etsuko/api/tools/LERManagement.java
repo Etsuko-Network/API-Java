@@ -8,9 +8,7 @@
 package com.etsuko.api.tools;
 
 import com.etsuko.api.tools.interfaces.ILERManagement;
-import dev.morphia.annotations.Embedded;
 
-@Embedded
 public class LERManagement implements ILERManagement {
 
     private static final long NECESSARY_LEVELS_TO_REBIRTHS = 100;
